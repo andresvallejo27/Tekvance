@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekvance - Especialistas en Domótica</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Usar la fuente Montserrat como predeterminada */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Animaciones de entrada del Hero --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out 0.4s forwards; opacity: 0; }
+        .animate-fade-in { animation: fadeInUp 0.8s ease-out 0.8s forwards; opacity: 0; }
+        
+        /* --- Estilo del Header al hacer scroll --- */
+        header {
+            transition: background-color 0.4s ease-out;
+        }
+        header.scrolled {
+            background-color: rgba(31, 41, 55, 0.8); /* bg-gray-800 con opacidad */
+            backdrop-filter: blur(10px);
+        }
+
+        /* --- Animación de entrada al hacer scroll --- */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Retrasos para efecto escalonado */
+        .reveal-on-scroll.delay-200 { transition-delay: 0.2s; }
+        .reveal-on-scroll.delay-400 { transition-delay: 0.4s; }
+        .reveal-on-scroll.delay-600 { transition-delay: 0.6s; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- ========== HEADER ========== -->
+    <header class="bg-transparent fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-white font-extrabold text-2xl tracking-wider"><a href="#">Tekvance</a></div>
+                    <div class="hidden md:flex items-center space-x-6">
+                        <a href="#" class="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:-translate-y-0.5">Inicio</a>
+                        <a href="#valores" class="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:-translate-y-0.5">Valores</a>
+                        <a href="#experiencia" class="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:-translate-y-0.5">Experiencia</a>
+                        <a href="#servicios" class="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:-translate-y-0.5">Servicios</a>
+                        <a href="#" class="text-gray-300 hover:text-orange-400 transition-all duration-300 transform hover:-translate-y-0.5">Contacto</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-5 text-sm rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hidden sm:block">Cotizar Ahora</a>
+                </div>
+            </div>
+            <div class="md:hidden flex justify-center items-center space-x-4 mt-4 text-sm">
+                <a href="#" class="text-gray-300 hover:text-orange-400">Inicio</a>
+                <a href="#valores" class="text-gray-300 hover:text-orange-400">Valores</a>
+                <a href="#experiencia" class="text-gray-300 hover:text-orange-400">Experiencia</a>
+                 <a href="#servicios" class="text-gray-300 hover:text-orange-400">Servicios</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== HERO SECTION ========== -->
+    <main>
+        <section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=2070&auto=format&fit=crop" alt="Interior de una casa moderna" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/111827/FFFFFF?text=Casa+Moderna';">
+                <div class="absolute inset-0 bg-black opacity-60"></div>
+            </div>
+            <div class="relative z-10 px-4">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-down">Hacemos tu vida más <span class="text-orange-400">fácil, segura y eficiente.</span></h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-200 animate-fade-in-up">Transformamos tu hogar o negocio en un espacio inteligente, automatizado y adaptado a tus necesidades.</p>
+                <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg text-lg transition-all duration-300 transform hover:scale-105 animate-fade-in">Descubre Cómo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== VALORES DE LA EMPRESA ========== -->
+    <section id="valores" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-gray-800 reveal-on-scroll">Nuestros Pilares</h2>
+                <p class="mt-2 text-lg text-gray-600 reveal-on-scroll delay-200">Los valores que guían cada proyecto que realizamos.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="reveal-on-scroll delay-200 relative bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <span class="absolute top-4 right-6 text-8xl font-extrabold text-gray-100">01</span>
+                    <div class="relative z-10">
+                        <div class="bg-orange-100 text-orange-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Eficiencia</h3>
+                        <p class="text-gray-600">Optimizamos el consumo de energía y automatizamos tareas para que ahorres tiempo y dinero, haciendo tu vida más simple.</p>
+                    </div>
+                </div>
+                <div class="reveal-on-scroll delay-400 relative bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <span class="absolute top-4 right-6 text-8xl font-extrabold text-gray-100">02</span>
+                    <div class="relative z-10">
+                        <div class="bg-orange-100 text-orange-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.417l5.5-5.5a12.025 12.025 0 013.118-1.043 12.025 12.025 0 013.118 1.043l5.5 5.5A12.02 12.02 0 0021 8.984a11.955 11.955 0 01-2.382-3.001z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Seguridad</h3>
+                        <p class="text-gray-600">Integramos sistemas de vigilancia, alarmas y control de acceso para que tú y los tuyos se sientan protegidos en todo momento.</p>
+                    </div>
+                </div>
+                <div class="reveal-on-scroll delay-600 relative bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+                    <span class="absolute top-4 right-6 text-8xl font-extrabold text-gray-100">03</span>
+                    <div class="relative z-10">
+                        <div class="bg-orange-100 text-orange-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Confort</h3>
+                        <p class="text-gray-600">Creamos ambientes perfectos para cada ocasión, controlando iluminación, temperatura y entretenimiento con un solo toque.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCIA Y ESTADÍSTICAS ========== -->
+    <section id="experiencia" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="lg:flex lg:items-center lg:gap-16">
+                <div class="lg:w-5/12 reveal-on-scroll">
+                    <img class="rounded-xl shadow-lg w-full h-full object-cover" src="https://images.unsplash.com/photo-1605599443034-e275a5a71032?q=80&w=2070&auto=format&fit=crop" alt="Mano controlando una casa inteligente con un smartphone" onerror="this.onerror=null;this.src='https://placehold.co/800x600/CCCCCC/FFFFFF?text=Domótica';">
+                </div>
+                <div class="lg:w-7/12 mt-10 lg:mt-0">
+                    <p class="text-orange-500 font-semibold reveal-on-scroll">NUESTRA EXPERIENCIA</p>
+                    <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-gray-800 reveal-on-scroll delay-200">Más de 5 años en Domotización y Automatización.</h2>
+                    <p class="mt-4 text-gray-600 reveal-on-scroll delay-400">En Tekvance, contamos con un equipo multidisciplinario que diseña e instala soluciones domóticas para viviendas, oficinas y edificios que mejoran la eficiencia e impactan la seguridad y el bienestar de nuestros clientes.</p>
+                    <ul class="mt-6 space-y-4 reveal-on-scroll delay-600">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 bg-orange-100 text-orange-500 rounded-full p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V4m0 16v-2M8 8l1.414-1.414M14.586 14.586L16 16m-1.414-8.414L16 6m-8.414 9.414L6 16"></path></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Tecnología robusta y duradera</h4>
+                                <p class="text-gray-600 mt-1">Nuestras automatizaciones se destacan por ser sistemas potentes y estables que procesan una gran cantidad de operaciones.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 bg-orange-100 text-orange-500 rounded-full p-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Desarrollos a la medida</h4>
+                                <p class="text-gray-600 mt-1">Diseñamos sistemas adecuados para cada necesidad; flexibles e infinitamente ampliables.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Barra de estadísticas -->
+        <div id="stats-bar" class="mt-20 bg-gray-800 py-12">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-white text-center">
+                    <div class="reveal-on-scroll">
+                        <h3 class="text-4xl font-extrabold text-orange-400">
+                            <span class="counter" data-target="5">0</span>+
+                        </h3>
+                        <p class="mt-2 text-gray-300">Años de Experiencia</p>
+                    </div>
+                    <div class="reveal-on-scroll delay-200">
+                        <h3 class="text-4xl font-extrabold text-orange-400">
+                            <span class="counter" data-target="150">0</span>+
+                        </h3>
+                        <p class="mt-2 text-gray-300">Proyectos Completados</p>
+                    </div>
+                    <div class="reveal-on-scroll delay-400">
+                        <h3 class="text-4xl font-extrabold text-orange-400">
+                           ~<span class="counter" data-target="30">0</span>%
+                        </h3>
+                        <p class="mt-2 text-gray-300">Ahorro Energético</p>
+                    </div>
+                    <div class="reveal-on-scroll delay-600">
+                        <h3 class="text-4xl font-extrabold text-orange-400">
+                            <span class="counter" data-target="98">0</span>%
+                        </h3>
+                        <p class="mt-2 text-gray-300">Clientes Satisfechos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICIOS ========== -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-extrabold text-gray-800 reveal-on-scroll">Nuestros Servicios</h2>
+                <p class="mt-2 text-lg text-gray-600 reveal-on-scroll delay-200">Soluciones inteligentes para cada tipo de espacio.</p>
+                 <div class="mt-4 w-24 h-1 bg-orange-500 mx-auto reveal-on-scroll delay-400"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Tarjeta de Servicio 1 -->
+                <div class="reveal-on-scroll delay-200 bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative">
+                        <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Exterior de un edificio residencial moderno" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Edificios';">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Automatización Residencial</h3>
+                        <p class="text-gray-600 mb-6">Dale la bienvenida al futuro de la Eficiencia y Seguridad Residencial.</p>
+                        <a href="#" class="font-semibold text-orange-500 hover:text-orange-600 transition-colors duration-300">Ver más →</a>
+                    </div>
+                </div>
+                <!-- Tarjeta de Servicio 2 -->
+                <div class="reveal-on-scroll delay-400 bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative">
+                        <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop" alt="Interior de una casa domótica" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Casa';">
+                         <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Domótica para Casas</h3>
+                        <p class="text-gray-600 mb-6">¡Descubre la domótica que ha evolucionado a otro nivel! Nuestra Smart Home.</p>
+                        <a href="#" class="font-semibold text-orange-500 hover:text-orange-600 transition-colors duration-300">Ver más →</a>
+                    </div>
+                </div>
+                <!-- Tarjeta de Servicio 3 -->
+                <div class="reveal-on-scroll delay-600 bg-white rounded-xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative">
+                        <img class="w-full h-56 object-cover" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop" alt="Oficina moderna y corporativa" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Oficina';">
+                         <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all duration-300"></div>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Corporativo - Oficinas</h3>
+                        <p class="text-gray-600 mb-6">La productividad y bienestar de los trabajadores están directamente relacionados.</p>
+                        <a href="#" class="font-semibold text-orange-500 hover:text-orange-600 transition-colors duration-300">Ver más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- Lógica para el cambio de estilo del header al hacer scroll ---
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // --- Lógica para animar elementos y números al hacer scroll ---
+        const animateCounter = (el) => {
+            const target = +el.dataset.target;
+            let current = 0;
+            const duration = 2000; // 2 segundos
+            const stepTime = Math.abs(Math.floor(duration / target)) || 1;
+
+            const timer = setInterval(() => {
+                current += 1;
+                el.textContent = current;
+                if (current >= target) {
+                    el.textContent = target; // Asegurarse que el valor final es exacto
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animar elementos con 'reveal-on-scroll'
+                    const elementsToReveal = entry.target.querySelectorAll('.reveal-on-scroll');
+                    
+                    if(elementsToReveal.length > 0) {
+                        elementsToReveal.forEach(el => el.classList.add('is-visible'));
+                    } else {
+                        entry.target.classList.add('is-visible');
+                    }
+
+                    // Animar contadores si la sección es la de estadísticas
+                    if (entry.target.id === 'stats-bar') {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            // Prevenir que la animación se ejecute múltiples veces
+                            if (!counter.classList.contains('is-animated')) {
+                                animateCounter(counter);
+                                counter.classList.add('is-animated');
+                            }
+                        });
+                    }
+                    // Dejar de observar la sección una vez que se ha animado
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observar las secciones
+        document.querySelectorAll('#valores, #experiencia, #stats-bar, #servicios').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
